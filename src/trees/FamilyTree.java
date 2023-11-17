@@ -52,6 +52,10 @@ public class FamilyTree
             {
                 // If child.getNodeWithName(targetName) returns a non-null node,
                 // then that's the node we're looking for. Return it.
+            	TreeNode temp = child.getNodeWithName(targetName);
+            	if(temp != null) {
+            		return temp;
+            	}
             }
             
             // Not found anywhere.
@@ -69,6 +73,13 @@ public class FamilyTree
             // the nodes of a tree is like traversing a linked list. If that isn’t clear,
             // draw a tree, mark any leaf node, and then mark its ancestors in order from
             // recent to ancient. Expect a question about this on the final exam.
+            if(this.parent.parent != null) {
+            	TreeNode temp = this.parent.parent;
+            	while(temp != null) {
+            		ancestors.add(temp);
+            		temp = temp.parent;
+            	}
+            }
 
             return ancestors;
         }
